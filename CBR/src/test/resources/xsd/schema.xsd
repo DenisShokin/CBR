@@ -1,28 +1,29 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="iso.cbr.ru" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Document">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Balance">
-          <xs:complexType>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="iso.cbr.ru"
+           xmlns="iso.cbr.ru" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Balance">
+        <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="StartRest"/>
-              <xs:element name="Operation" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="Status"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:date" name="date" use="required"/>
-                  <xs:attribute type="xs:float" name="dbt" use="optional"/>
-                  <xs:attribute type="xs:float" name="cdt" use="optional"/>
-                  <xs:attribute type="xs:string" name="corAcc" use="required"/>
-                </xs:complexType>
-              </xs:element>
+                <xs:element type="xs:byte" name="StartRest"/>
+                <xs:element name="Operation" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="Status"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:date" name="date" use="required"/>
+                        <xs:attribute type="xs:float" name="dbt" use="optional"/>
+                        <xs:attribute type="xs:float" name="cdt" use="optional"/>
+                        <xs:attribute name="corAcc" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[0-9]{20}"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
             <xs:attribute name="inBalance" type="xs:float" use="required"/>
             <xs:attribute name="currBalance" type="xs:float" use="required"/>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
