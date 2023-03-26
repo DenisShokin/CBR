@@ -3,11 +3,17 @@
     <xs:element name="Balance">
         <xs:complexType>
             <xs:sequence>
-                <xs:element type="xs:byte" name="StartRest"/>
                 <xs:element name="Operation" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element type="xs:string" name="Status"/>
+                            <xs:element name="Status">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Выполнена"/>
+                                        <xs:enumeration value="Исключен"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
                         </xs:sequence>
                         <xs:attribute type="xs:date" name="date" use="required"/>
                         <xs:attribute type="xs:float" name="dbt" use="optional"/>

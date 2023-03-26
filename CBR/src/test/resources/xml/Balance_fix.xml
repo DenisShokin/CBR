@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Balance inBalance="100.00" currBalance="500.00" xmlns="iso.cbr.ru">
+	<Operation corAcc="12345678901234567890" date="2023-03-26" dbt="100.00" cdt="0.00">
+		<Status>Выполнена</Status>
+	</Operation>
+	<Operation corAcc="09876543210987654321" date="2023-03-25" dbt="0.00" cdt="50.00">
+		<Status>Исключен</Status>
+	</Operation>
+</Balance>
